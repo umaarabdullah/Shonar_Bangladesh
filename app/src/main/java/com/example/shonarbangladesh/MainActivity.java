@@ -41,7 +41,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onClick(View v) {
 
-                inputPrice = Integer.parseInt(editText.getText().toString());
+                String inputPriceString = editText.getText().toString();
+                // handling an empty string case
+                if(inputPriceString.equals(""))
+                    return;
+
+                inputPrice = Integer.parseInt(inputPriceString);
 
                 if(vat == 0)
                     return;
