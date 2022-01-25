@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/foodItem"
+        android:title="@string/food_cap"/>
+
+    <item
+        android:id="@+id/clothsItem"
+        android:title="@string/cloths_cap"/>
+
+    <item
+        android:id="@+id/aboutItem"
+        android:title="@string/about_us_cap"/>
+
+</menu>

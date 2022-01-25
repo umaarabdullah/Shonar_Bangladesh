@@ -13,39 +13,31 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class AboutActivity extends AppCompatActivity {
 
-    private final String TAG = "MainActivity";
-    private int inputPrice = 0;
-    private int foodOrClothsChoice = 3;
-    /***
-     * AC restaurant Vat 10%, non AC 7%, Cloths Big Showroom 7.5% online shopping 5%
-     ***/
-    private double vat = 0;
+    private String TAG = "AboutActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        setTheme(R.style.splashScreenTheme);        // enabling splash screen
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_about);
 
         // set listener to the arrow buttons to navigate between screens
-        Button rightArrowButton = findViewById(R.id.mainActivityRightArrow);
-        Button leftArrowButton = findViewById(R.id.mainActivityLeftArrow);
+        Button rightArrowButton = findViewById(R.id.aboutActivityRightArrow);
+        Button leftArrowButton = findViewById(R.id.aboutActivityLeftArrow);
 
         rightArrowButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "onClick: rightButton");
-                startActivity(new Intent(MainActivity.this, ClothsActivity.class));
+                Log.d(TAG, "onClick: right button");
+                startActivity(new Intent(AboutActivity.this, MainActivity.class));
             }
         });
         leftArrowButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "onClick: leftButton");
-                startActivity(new Intent(MainActivity.this, AboutActivity.class));
+                Log.d(TAG, "onClick: left button");
+                startActivity(new Intent(AboutActivity.this, ClothsActivity.class));
             }
         });
 
