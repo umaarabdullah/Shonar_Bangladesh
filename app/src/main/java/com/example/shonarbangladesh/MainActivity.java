@@ -12,16 +12,22 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    /***
+     * AC restaurant Vat 10%, non AC restaurant 7%, Cloths Big Showroom 7.5% online shopping 5%
+     ***/
+
     private final String TAG = "MainActivity";
     private int inputPrice = 0;
-    private int foodOrClothsChoice = 3;
-    /***
-     * AC restaurant Vat 10%, non AC 7%, Cloths Big Showroom 7.5% online shopping 5%
-     ***/
-    private double vat = 0;
+    private double outputPrice = 0.00;
+    private TextView outputPriceTextView;
+
+    public MainActivity() {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +55,43 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // linking the input components and calculating vat and observing/listening user clicks
+        EditText inputACRestPrice = findViewById(R.id.ACRestInputPrice);
+        if(inputACRestPrice.getText().toString() != null)
+            setInputPrice(Integer.parseInt(inputACRestPrice.getText().toString()));
+
+        inputACRestPrice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calulateVatIncludedPriceForACRestaurant(inputPrice);
+                outputPriceTextView.setText(Double.toString(getOutputPrice()));
+            }
+        });
+
+        EditText inputNonACRetPrice = findViewById(R.id.nonACRestInputPrice);
+        setInputPrice(Integer.parseInt(inputNonACRetPrice.getText().toString()));
+
+        inputNonACRetPrice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calulateVatIncludedPriceForNonACRestaurant(inputPrice);
+                outputPriceTextView.setText(Double.toString(getOutputPrice()));
+            }
+        });
+    }
+
+    private void calulateVatIncludedPriceForACRestaurant(int inputPrice) {
+
+        double vatInclPrice = inputPrice;
+        vatInclPrice = vatInclPrice + vatInclPrice*0.10;
+        setOutputPrice(vatInclPrice);
+    }
+
+    private void calulateVatIncludedPriceForNonACRestaurant(int inputPrice) {
+
+        double vatInclPrice = inputPrice;
+        vatInclPrice = vatInclPrice + vatInclPrice*0.07;
+        setOutputPrice(vatInclPrice);
     }
 
     @Override
@@ -87,5 +130,21 @@ public class MainActivity extends AppCompatActivity {
                 // code block
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public int getInputPrice() {
+        return inputPrice;
+    }
+
+    public void setInputPrice(int inputPrice) {
+        this.inputPrice = inputPrice;
+    }
+
+    public double getOutputPrice() {
+        return outputPrice;
+    }
+
+    public void setOutputPrice(double outputPrice) {
+        this.outputPrice = outputPrice;
     }
 }
