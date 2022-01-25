@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         // set listener to the arrow buttons to navigate between screens
         Button rightArrowButton = findViewById(R.id.mainActivityRightArrow);
         Button leftArrowButton = findViewById(R.id.mainActivityLeftArrow);
@@ -55,29 +56,31 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         // linking the input components and calculating vat and observing/listening user clicks
         EditText inputACRestPrice = findViewById(R.id.ACRestInputPrice);
-        if(inputACRestPrice.getText().toString() != null)
-            setInputPrice(Integer.parseInt(inputACRestPrice.getText().toString()));
 
         inputACRestPrice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                setInputPrice(Integer.parseInt(inputACRestPrice.getText().toString()));
                 calulateVatIncludedPriceForACRestaurant(inputPrice);
+                Log.d(TAG, "onClick: outputprice " + Double.toString(getOutputPrice()));
                 outputPriceTextView.setText(Double.toString(getOutputPrice()));
             }
         });
 
         EditText inputNonACRetPrice = findViewById(R.id.nonACRestInputPrice);
-        setInputPrice(Integer.parseInt(inputNonACRetPrice.getText().toString()));
 
         inputNonACRetPrice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                setInputPrice(Integer.parseInt(inputNonACRetPrice.getText().toString()));
                 calulateVatIncludedPriceForNonACRestaurant(inputPrice);
                 outputPriceTextView.setText(Double.toString(getOutputPrice()));
             }
         });
+
     }
 
     private void calulateVatIncludedPriceForACRestaurant(int inputPrice) {
