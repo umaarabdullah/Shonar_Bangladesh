@@ -14,7 +14,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class MainActivity extends AppCompatActivity {
 
     private final String TAG = "MainActivity";
     private int inputPrice = 0;
@@ -23,11 +23,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.splashScreenTheme);
+        setTheme(R.style.splashScreenTheme);        // enabling splash screen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // radio group listener
+        /*// radio group listener
         RadioGroup radioGroup = findViewById(R.id.radioGroup);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -63,10 +63,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 TextView outputPrice = findViewById(R.id.outputPrice);
                 outputPrice.setText(outputString);
             }
-        });
+        });*/
 
     }
-
+    /*
     private void onRadioButtonSelection(RadioGroup radioGroup, int checkedId) {
 
         RadioButton selectedRadioButton;
@@ -138,5 +138,5 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
-    }
+    }*/
 }
