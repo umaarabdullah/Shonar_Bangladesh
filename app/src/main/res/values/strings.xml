@@ -1,12 +1,18 @@
 <resources>
     <string name="app_name">Simple VAT</string>
-    <string name="ac_restaurants">AC Restaurants</string>
-    <string name="non_ac_restaurants">Non-AC Restaurants</string>
-    <string name="big_showrooms">Big Showrooms</string>
-    <string name="online_shopping">Online Shopping</string>
+    <string name="ac_restaurants">AC RESTAURANTS</string>
+    <string name="non_ac_restaurants">NON-AC RESTAURANTS</string>
+    <string name="big_showrooms">BIG SHOWROOMS</string>
+    <string name="online_shopping">ONLINE SHOPPING</string>
     <string name="food">Food</string>
     <string name="cloths">Cloths</string>
+    <string name="food_cap">FOOD</string>
+    <string name="cloths_cap">CLOTH</string>
     <string name="enter_price">Enter Price</string>
-    <string name="price_with_vat">"Price With Vat"</string>
+    <string name="price_with_vat">Price With Vat</string>
+    <string name="about_us_cap">ABOUT US</string>
+    <string name="insert_your_price">INSERT YOUR PRICE</string>
+    <string name="tk">৳</string>
+    <string name="about_us_text">Developed by Umaar Abdullah Morshed<br/>Idea by Sabbir Hossain Tareq</string>
 
 </resources>
