@@ -26,9 +26,6 @@ public class MainActivity extends AppCompatActivity {
     private double outputPrice = 0.00;
     private TextView outputPriceTextView;
 
-    public MainActivity() {
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -66,7 +63,8 @@ public class MainActivity extends AppCompatActivity {
                 setInputPrice(Integer.parseInt(inputACRestPrice.getText().toString()));
                 calulateVatIncludedPriceForACRestaurant(inputPrice);
                 Log.d(TAG, "onClick: outputprice " + Double.toString(getOutputPrice()));
-                outputPriceTextView.setText(Double.toString(getOutputPrice()));
+                outputPriceTextView = findViewById(R.id.outputPriceTK);
+                outputPriceTextView.setText( (String) Double.toString(getOutputPrice()));
             }
         });
 
@@ -77,7 +75,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 setInputPrice(Integer.parseInt(inputNonACRetPrice.getText().toString()));
                 calulateVatIncludedPriceForNonACRestaurant(inputPrice);
-                outputPriceTextView.setText(Double.toString(getOutputPrice()));
+                outputPriceTextView = findViewById(R.id.outputPriceTK);
+                outputPriceTextView.setText( (String) Double.toString(getOutputPrice()));
             }
         });
 
