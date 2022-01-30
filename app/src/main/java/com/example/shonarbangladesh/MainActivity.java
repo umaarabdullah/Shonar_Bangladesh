@@ -12,16 +12,19 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    /***
+     * AC restaurant Vat 10%, non AC restaurant 7%, Cloths Big Showroom 7.5% online shopping 5%
+     ***/
+
     private final String TAG = "MainActivity";
     private int inputPrice = 0;
-    private int foodOrClothsChoice = 3;
-    /***
-     * AC restaurant Vat 10%, non AC 7%, Cloths Big Showroom 7.5% online shopping 5%
-     ***/
-    private double vat = 0;
+    private double outputPrice = 0.00;
+    private TextView outputPriceTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         setTheme(R.style.splashScreenTheme);        // enabling splash screen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         // set listener to the arrow buttons to navigate between screens
         Button rightArrowButton = findViewById(R.id.mainActivityRightArrow);
@@ -49,6 +53,47 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        // linking the input components and calculating vat and observing/listening user clicks
+        EditText inputACRestPrice = findViewById(R.id.ACRestInputPrice);
+
+        inputACRestPrice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setInputPrice(Integer.parseInt(inputACRestPrice.getText().toString()));
+                calulateVatIncludedPriceForACRestaurant(inputPrice);
+                Log.d(TAG, "onClick: outputprice " + Double.toString(getOutputPrice()));
+                outputPriceTextView = findViewById(R.id.outputPriceTK);
+                outputPriceTextView.setText( (String) Double.toString(getOutputPrice()));
+            }
+        });
+
+        EditText inputNonACRetPrice = findViewById(R.id.nonACRestInputPrice);
+
+        inputNonACRetPrice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setInputPrice(Integer.parseInt(inputNonACRetPrice.getText().toString()));
+                calulateVatIncludedPriceForNonACRestaurant(inputPrice);
+                outputPriceTextView = findViewById(R.id.outputPriceTK);
+                outputPriceTextView.setText( (String) Double.toString(getOutputPrice()));
+            }
+        });
+
+    }
+
+    private void calulateVatIncludedPriceForACRestaurant(int inputPrice) {
+
+        double vatInclPrice = inputPrice;
+        vatInclPrice = vatInclPrice + vatInclPrice*0.10;
+        setOutputPrice(vatInclPrice);
+    }
+
+    private void calulateVatIncludedPriceForNonACRestaurant(int inputPrice) {
+
+        double vatInclPrice = inputPrice;
+        vatInclPrice = vatInclPrice + vatInclPrice*0.07;
+        setOutputPrice(vatInclPrice);
     }
 
     @Override
@@ -87,5 +132,21 @@ public class MainActivity extends AppCompatActivity {
                 // code block
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public int getInputPrice() {
+        return inputPrice;
+    }
+
+    public void setInputPrice(int inputPrice) {
+        this.inputPrice = inputPrice;
+    }
+
+    public double getOutputPrice() {
+        return outputPrice;
+    }
+
+    public void setOutputPrice(double outputPrice) {
+        this.outputPrice = outputPrice;
     }
 }

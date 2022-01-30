@@ -61,6 +61,7 @@
         android:textAlignment="center"
         android:textColorHint="@color/gray"
         android:textSize="14sp"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/mainActivityLeftArrow"
         app:layout_constraintStart_toEndOf="@+id/mainActivityLeftArrow" />
 
@@ -92,6 +93,7 @@
         android:textAlignment="center"
         android:textColorHint="@color/gray"
         android:textSize="14sp"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@+id/ACRestInputPrice"
         app:layout_constraintTop_toBottomOf="@+id/mainActivityLeftArrow" />
 
@@ -117,7 +119,7 @@
         android:textAllCaps="true"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:fontFamily="@font/bebas_neue"
         android:letterSpacing=".05"
@@ -126,14 +128,14 @@
 
     <TextView
         android:id="@+id/outputPriceTK"
-        android:layout_width="170dp"
+        android:layout_width="200dp"
         android:layout_height="50sp"
         android:layout_marginTop="108dp"
         android:fontFamily="@font/bebas_neue"
         android:letterSpacing=".05"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/nonACRestInputPrice"
         app:layout_constraintTop_toBottomOf="@+id/nonACRestInputPrice" />
@@ -142,11 +144,12 @@
         android:id="@+id/tkFont"
         android:layout_width="30dp"
         android:layout_height="50dp"
+        android:layout_marginBottom="13dp"
         android:text="@string/tk"
-        android:textSize="40sp"
+        android:textAlignment="viewEnd"
         android:textColor="@color/yellow"
-        android:textAlignment="center"
-        app:layout_constraintStart_toEndOf="@+id/outputPriceTK"
-        app:layout_constraintTop_toTopOf="@+id/outputPriceTK" />
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/outputPriceText"
+        app:layout_constraintStart_toEndOf="@+id/outputPriceTK" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
