@@ -128,12 +128,12 @@
 
     <TextView
         android:id="@+id/outputPriceTK"
-        android:layout_width="145dp"
+        android:layout_width="200dp"
         android:layout_height="50sp"
         android:layout_marginTop="108dp"
         android:fontFamily="@font/bebas_neue"
         android:letterSpacing=".05"
-        android:textAlignment="viewEnd"
+        android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold"
